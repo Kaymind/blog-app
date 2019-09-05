@@ -13,16 +13,6 @@ app.use(methodOverride("_method"));
 app.use(expressSanitizer());
 app.set('view engine','ejs');
 
-//Temporary create DB
-// Blog.create({
-//     title: "Test blog",
-//     image: "https://images.unsplash.com/photo-1500021804447-2ca2eaaaabeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-//     body: "Hello this is the new blog!"
-// });
-
-//RESTful ROUTES
-
-
 app.get('/',function(req, res){
     res.redirect('/blogs');
 });
@@ -101,6 +91,7 @@ app.delete('/blogs/:id', function(req, res){
     });
 })
 
+//RUN SERVER
 app.listen(3000, function(){
     console.log('server is running at port 3000');
 })
