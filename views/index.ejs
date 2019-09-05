@@ -3,10 +3,10 @@
 
     <% blogs.forEach(function(blog){ %>
         <div>
-            <div class="row col-m-3">
+            <div class="row">
                 <h4><%= blog.title %></h4>
                 <img src="<%= blog.image %>" alt="">
-                <span><%= blog.created %></span>
+                <p><%= blog.created %></p>
                 <p><%= blog.body %></p>
             </div>
             
