@@ -13,6 +13,8 @@ app.use(methodOverride("_method"));
 app.use(expressSanitizer());
 app.set('view engine','ejs');
 
+
+//RESTful ROUTE
 app.get('/',function(req, res){
     res.redirect('/blogs');
 });
@@ -26,12 +28,10 @@ app.get('/blogs',function(req, res){
         }
     })
 })
-
 //NEW ROUTE
 app.get('/blogs/new',function(req, res){
     res.render('new');
 })
-
 //CREATE ROUTE
 app.post('/blogs',function(req, res){
     //create blog
@@ -45,7 +45,6 @@ app.post('/blogs',function(req, res){
         }
     })
 })
-
 //SHOW ROUTE
 app.get('/blogs/:id', function(req, res){
     Blog.findById(req.params.id, function(err, foundBlog){
@@ -56,7 +55,6 @@ app.get('/blogs/:id', function(req, res){
         }
     })
 })
-
 //EDIT ROUTE
 app.get('/blogs/:id/edit', function(req, res){
     Blog.findById(req.params.id, function(err, foundBlog){
@@ -67,7 +65,6 @@ app.get('/blogs/:id/edit', function(req, res){
         }
     })
 });
-
 //UPDATE ROUTE
 app.put('/blogs/:id', function(req, res){
     req.body.blog.body = req.sanitize(req.body.blog.body);
@@ -79,7 +76,6 @@ app.put('/blogs/:id', function(req, res){
         }
     })
 });
-
 //DELETE ROUTE
 app.delete('/blogs/:id', function(req, res){
     Blog.findByIdAndRemove(req.params.id, function(err){
@@ -90,7 +86,6 @@ app.delete('/blogs/:id', function(req, res){
         }
     });
 })
-
 //RUN SERVER
 app.listen(3000, function(){
     console.log('server is running at port 3000');
